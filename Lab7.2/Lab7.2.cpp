@@ -131,14 +131,88 @@ int main()
 		cout << "Угол между AB И BC: ";
 		cin >> B;
 
-
-		if ((AB > BC + CA || BC > AB + CA || CA > AB + BC) || (AB <= 0) || (BC <= 0) || (CA <= 0))
-		{
-			cout << "Ошибка! Одна сторона не может быть отрицательной или больше двух других" << endl;
-		}
 	}
 	x = square(3, AB, B, BC);
-	cout<< "Площадь треугольника ровна  " << x<<endl;
+	cout<< "Площадь треугольника ровна  " << x<<endl<<endl;
+	x = -1;
+	cout << "Введите параметры для вычисления площади пятиугольника с помощью функции square:" << endl;
+	while (x <= 0 || B >= 180 || B <= 0 || D >= 180 || D <= 0)
+	{
+
+		cout << "AB: ";
+		cin >> AB;
+
+		cout << "BC: ";
+		cin >> BC;
+
+		cout << "Угол между AB И BC: ";
+		cin >> B;
+
+		cout << "CD: ";
+		cin >> CD;
+
+		cout << "DE: ";
+		cin >> DE;
+
+		cout << "Угол между CD И DE: ";
+		cin >> D;
+
+		cout << "EA: ";
+		cin >> EA;
+		x = square(5, AB, B, BC, CD, D, DE, EA);
+		if (x<=0 || B >= 180 || B<=0 || D >= 180 || D <= 0)
+		{
+			cout << "Ошибка! Невозможно построить фигуру по введённым параметрам" << endl;
+		}
+	}
+	cout << "Площадь пятиугольника ровна " << x<<endl<<endl;
+	x = -1;
+	cout << "Введите параметры для вычисления площади восьмиугольника с помощью функции square:" << endl;
+	while (x <= 0 || B >= 180 || B <= 0 || D >= 180 || D <= 0 || D >= 180 || D <= 0)
+	{
+
+		cout << "AB: ";
+		cin >> AB;
+
+		cout << "BC: ";
+		cin >> BC;
+
+		cout << "Угол между AB И BC: ";
+		cin >> B;
+
+		cout << "CD: ";
+		cin >> CD;
+
+		cout << "DE: ";
+		cin >> DE;
+
+		cout << "Угол между CD И DE: ";
+		cin >> D;
+
+		cout << "EF: ";
+		cin >> EF;
+
+		cout << "FG: ";
+		cin >> FG;
+
+		cout << "Угол между EF И FG: ";
+		cin >> F;
+
+		cout << "GH: ";
+		cin >> GH;
+
+		cout << "HA: ";
+		cin >> HA;
+		cout << "Угол между GH И HA: ";
+		cin >> H;
+
+		x = square(5, AB, B, BC, CD, D, DE, EF,F,FG,GH,H,HA);
+		if (x <= 0 || B >= 180 || B <= 0 || D >= 180 || D <= 0||  D >= 180 || D <= 0)
+		{
+			cout << "Ошибка! Невозможно построить фигуру по введённым параметрам" << endl;
+		}
+	}
+	cout << "Площадь восьмиугольника ровна " << x << endl << endl;
 }
 
 
