@@ -1,21 +1,6 @@
 ﻿#include <iostream>
 #include <math.h>
 using namespace std;
-
-//Решить указанную в варианте задачу, используя функции с
-//переменным числом параметров.
-//
-//
-//Написать функцию(или макроопределение), которая
-//находит площадь треугольника по его сторонам.
-
-//Написать
-//функцию square c переменным числом параметров, которая
-//находит площадь n - угольника по заданным сторонам и углам.
-//Написать вызывающую функцию main, которая обращается к
-//функции square не менее трех раз с количеством
-//параметров 3, 5, 8
-
 float triangle(float a, float b, float c)
 {
 	float p = (a + b + c) / 2;
@@ -23,7 +8,6 @@ float triangle(float a, float b, float c)
 	return S;
 
 }
-
 int square(int num, int AB, ...)
 {
 	int SH=0;
@@ -53,7 +37,6 @@ int square(int num, int AB, ...)
 		co = *pr;
 		++pr;
 		b = *pr;
-
 		x = sqrt(pow(a, 2) + pow(b, 2) - 2 * a * b * cos(co));
 		arr[i] = x;
 		p = (a + b + x) / 2;
@@ -62,7 +45,6 @@ int square(int num, int AB, ...)
 		if (num==3)
 		{
 			return SAll;
-
 		}
 		++pr;
 		i++;
@@ -88,28 +70,21 @@ int square(int num, int AB, ...)
 	}
 	S = SAll + sqrt(p);
 	return S;
-
 }
-
 int main()
 {
 	setlocale(LC_ALL, "ru");
 	int AB=-1, BC=10, CD=-1, DE=-1, EF=-1, FG=-1, GH=-1, HA=-1,CA=-1,EA=-1;
 	int B, D, F, H;
-
 	cout << "Введите параметры для вычисления площади треугольника с помощью функции triangle:" << endl;
 	while ((AB > BC + CA || BC > AB + CA || CA > AB + BC) || (AB <= 0) || (BC <= 0) || (CA <= 0))
 	{
-
 		cout << "AB: ";
 		cin >> AB;
-
 		cout << "BC: ";
 		cin >> BC;
-
 		cout << "CA: ";
 		cin >> CA;
-
 		if ((AB > BC + CA || BC > AB + CA || CA > AB + BC) || (AB <= 0) || (BC <= 0) || (CA <= 0))
 		{
 			cout << "Ошибка! Одна сторона не может быть отрицательной или больше двух других" << endl;
@@ -119,18 +94,18 @@ int main()
 	cout << "Площадь треугольника ровна  " << x<<endl<<endl;
 	AB = -1; BC = -10;
 	cout << "Введите параметры для вычисления площади треугольника с помощью функции square:" << endl;
-	while ( (AB <= 0) || (BC <= 0) )
+	while ( (AB <= 0) || (BC <= 0) ||(B<=0) )
 	{
-
 		cout << "AB: ";
 		cin >> AB;
-
 		cout << "BC: ";
 		cin >> BC;
-
 		cout << "Угол между AB И BC: ";
 		cin >> B;
-
+		if ((AB <= 0) || (BC <= 0) || (B <= 0))
+		{
+			cout << "Ошибка! Невозможно построить фигуру по введённым параметрам" << endl;
+		}
 	}
 	x = square(3, AB, B, BC);
 	cout<< "Площадь треугольника ровна  " << x<<endl<<endl;
@@ -138,25 +113,18 @@ int main()
 	cout << "Введите параметры для вычисления площади пятиугольника с помощью функции square:" << endl;
 	while (x <= 0 || B >= 180 || B <= 0 || D >= 180 || D <= 0)
 	{
-
 		cout << "AB: ";
 		cin >> AB;
-
 		cout << "BC: ";
 		cin >> BC;
-
 		cout << "Угол между AB И BC: ";
 		cin >> B;
-
 		cout << "CD: ";
 		cin >> CD;
-
 		cout << "DE: ";
 		cin >> DE;
-
 		cout << "Угол между CD И DE: ";
 		cin >> D;
-
 		cout << "EA: ";
 		cin >> EA;
 		x = square(5, AB, B, BC, CD, D, DE, EA);
@@ -170,42 +138,30 @@ int main()
 	cout << "Введите параметры для вычисления площади восьмиугольника с помощью функции square:" << endl;
 	while (x <= 0 || B >= 180 || B <= 0 || D >= 180 || D <= 0 || D >= 180 || D <= 0)
 	{
-
 		cout << "AB: ";
 		cin >> AB;
-
 		cout << "BC: ";
 		cin >> BC;
-
 		cout << "Угол между AB И BC: ";
 		cin >> B;
-
 		cout << "CD: ";
 		cin >> CD;
-
 		cout << "DE: ";
 		cin >> DE;
-
 		cout << "Угол между CD И DE: ";
 		cin >> D;
-
 		cout << "EF: ";
 		cin >> EF;
-
 		cout << "FG: ";
 		cin >> FG;
-
 		cout << "Угол между EF И FG: ";
 		cin >> F;
-
 		cout << "GH: ";
 		cin >> GH;
-
 		cout << "HA: ";
 		cin >> HA;
 		cout << "Угол между GH И HA: ";
 		cin >> H;
-
 		x = square(5, AB, B, BC, CD, D, DE, EF,F,FG,GH,H,HA);
 		if (x <= 0 || B >= 180 || B <= 0 || D >= 180 || D <= 0||  D >= 180 || D <= 0)
 		{
